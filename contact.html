@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Akshara Event Planners</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: #fff;
+  color: #000;
+  line-height: 1.5;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+header img {
+  height: 42px;
+  width: 42px;
+  object-fit: contain;
+}
+
+header span {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* HERO */
+.hero {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: Poppins;
+  font-size: 28px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px;
+}
+
+/* QUICK CONTACT */
+.quick-contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.card {
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card h3 {
+  font-family: Poppins;
+  font-size: 18px;
+}
+
+.card a {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  background: #c77bc1;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 15px;
+}
+
+/* FORM */
+.form-box {
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.form-box h2 {
+  font-family: Poppins;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+form {
+  display: grid;
+  gap: 14px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  background: #c77bc1;
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* MAP */
+.map {
+  margin-top: 30px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.map iframe {
+  width: 100%;
+  height: 260px;
+  border: 0;
+}
+
+/* INFO */
+.info {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.info-box {
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+/* ===========================
+   TABLET (≥768px)
+=========================== */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+    max-width: none;
+  }
+
+  .hero p {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .quick-contact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================
+   DESKTOP (≥1024px)
+=========================== */
+@media (min-width: 1024px) {
+  header {
+    padding: 16px 24px;
+  }
+
+  .container {
+    padding: 24px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="gallery/aksharalogo.jpeg" alt="Akshara Event Planners">
+  <span>Akshara Event Planners</span>
+</header>
+
+<section class="hero">
+  <h1>Contact Us</h1>
+  <p>Plan your event confidently. We respond within 24 hours.</p>
+</section>
+
+<div class="container">
+
+<!-- QUICK CONTACT -->
+<div class="quick-contact">
+  <div class="card">
+    <h3>📞 Call Us</h3>
+    <a href="tel:+917989177231">Call Now</a>
+  </div>
+
+  <div class="card">
+    <h3>💬 WhatsApp</h3>
+    <a href="https://wa.me/917989177231">Chat Now</a>
+  </div>
+
+  <div class="card">
+    <h3>🧾 Build Quote</h3>
+    <a href="quotation.html">Get Estimate</a>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-box">
+  <h2>Send an Enquiry</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+    <select id="eventType" required>
+      <option value="">Select Event Type</option>
+      <option>Wedding</option>
+      <option>Reception</option>
+      <option>Birthday</option>
+      <option>Corporate Event</option>
+      <option>Other</option>
+    </select>
+
+    <textarea id="message" rows="4" placeholder="Tell us about your event"></textarea>
+
+    <button type="submit">Submit Enquiry</button>
+  </form>
+</div>
+
+<!-- MAP -->
+<div class="map">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3877.8586956712293!2d79.43775637564649!3d13.605441086771293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1767001843804!5m2!1sen!2sin"
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<!-- INFO -->
+<div class="info">
+  <div class="info-box">
+    <h3>📍 Location</h3>
+    <p>Tirupati, Andhra Pradesh</p>
+  </div>
+  <div class="info-box">
+    <h3>⏰ Working Hours</h3>
+    <p>Mon – Sun<br>9:00 AM – 9:00 PM</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBZLwY3yAdEN4HrOxZ5SZ_SJxrnavNikUjf7yTlDU_gCTKYpEV4NXs3Q3XQ4ankUzN/exec";
+
+document.getElementById("testForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    eventType: document.getElementById("eventType").value,
+    message: document.getElementById("message").value
+  };
+
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify(data),
+    mode: "no-cors"
+  }).then(() => {
+    alert("Form submitted");
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wedding Story — Akshara Event Planners</title>
+<style>
+/* =========================================================================
+   Story-book Scroll & Reveal — Single file template
+   - Accent: #883f85 (no gold)
+   - Replace images under: gallery/wedding decoration/photo1.jpg ... photo10.jpg
+   ========================================================================= */
+
+/* Basic reset */
+* { box-sizing: border-box; margin:0; padding:0; }
+html,body { height:100%; }
+body {
+  font-family: "Lora", serif;
+  color: #111;
+  background: #fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Utility */
+.container { max-width:1200px; margin:0 auto; padding:0 18px; }
+
+/* Page title (small, elegant) */
+.site-badge {
+  text-align:center;
+  padding:28px 18px 6px;
+  font-family: 'Cinzel Decorative', serif;
+  color:#883f85;
+  letter-spacing:1px;
+  font-size:20px;
+}
+
+/* HERO — cinematic full-screen image with subtle overlay & heading */
+.hero {
+  position:relative;
+  width:100%;
+  min-height:250px;
+  background: center/cover no-repeat url("gallery/weddingdecorationcoverimage.jpeg");
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:40px 18px;
+  transition: transform 1s ease;
+  overflow:hidden;
+}
+.hero::after {
+  content:"";
+  position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.15));
+  pointer-events:none;
+}
+.hero .hero-caption {
+  position:relative;
+  z-index:2;
+  max-width:1100px;
+  color: #fff;
+  text-align:left;
+  padding: 20px 26px;
+  backdrop-filter: blur(4px) saturate(120%);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(136,63,133,0.14), rgba(0,0,0,0.18));
+  box-shadow: 0 12px 40px rgba(0,0,0,0.32);
+  height: 50%;
+}
+.hero h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size:34px;
+  margin-bottom:6px;
+  color: #fff;
+}
+.hero p.lead { color: rgba(255,255,255,0.92); font-size:15px; margin:0; }
+
+/* SECTION headings for chapters */
+.chapter-title {
+  margin:48px 0 18px;
+  font-family: 'Cinzel Decorative', serif;
+  color:#883f85;
+  text-align:center;
+  font-size:26px;
+}
+
+/* Full width chapter image (single) */
+.full-plate {
+  width:70%;
+  height: 400px;
+  border-radius:12px;
+  margin: 0 auto 32px;
+  overflow:hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform .8s ease, opacity .8s ease;
+    background: center/cover;
+}
+
+
+/* Horizontal scroll chapter wrapper */
+.hscroll-wrap {
+  position: relative;
+  margin: 12px 0 32px;
+  padding: 10px 0;
+}
+.hscroll {
+  display:flex;
+  gap:14px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 18px;
+  -webkit-overflow-scrolling: touch;
+}
+.hscroll::-webkit-scrollbar { height:8px; }
+.hscroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius:8px; }
+
+/* Horizontal item */
+.hitem {
+  min-width: 320px;
+  width: 320px;
+  height: 220px;
+  border-radius: 12px;
+  flex: 0 0 auto;
+  background: center/cover no-repeat;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.hitem:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.16); }
+
+/* Horizontal nav buttons */
+.hnav {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+}
+.hnav.left { left:10px; }
+.hnav.right { right:10px; }
+.hnav svg { width:18px; height:18px; fill:#883f85; }
+
+/* Masonry/collage */
+.masonry {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+  margin-bottom: 36px;
+}
+.masonry .mitem {
+  border-radius:10px; overflow:hidden; background:#eee;
+  height:200px; background-position:center; background-size:cover;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.masonry .mitem:hover { transform: translateY(-6px); box-shadow: 0 12px 34px rgba(0,0,0,0.12); }
+
+/* CTA / final section */
+.cta {
+  margin: 40px 0 80px;
+  padding: 36px 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(136,63,133,0.06), rgba(136,63,133,0.02));
+  box-shadow: 0 10px 30px rgba(136,63,133,0.06);
+  text-align:center;
+}
+.cta h3 { font-family:'Cinzel Decorative', serif; color:#883f85; font-size:24px; margin-bottom:10px; }
+.cta p { color: #222; margin-bottom:18px; max-width:820px; margin-left:auto; margin-right:auto; }
+.btn-primary {
+  background: linear-gradient(90deg, #883f85, #9b55a2);
+  color:#fff; padding:12px 20px; border-radius:10px; border: none; cursor:pointer;
+  font-weight:700; letter-spacing:.3px; transition: transform .18s ease;
+}
+.btn-primary:hover { transform: translateY(-3px); }
+
+/* Reveal helper classes (used by JS on scroll) */
+.reveal { opacity:0; transform: translateY(26px); transition: all .75s cubic-bezier(.2,.9,.2,1); }
+.reveal.in { opacity:1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .masonry { grid-template-columns: repeat(2, 1fr); }
+  .hitem { min-width: 280px; width:280px; height:200px; }
+  .full-plate { height:44vh; }
+}
+@media (max-width: 640px) {
+  .hero { height:27vh; align-items:flex-end; padding:18px; width: 100%; }
+  .hero h1 { font-size:22px; }
+  .masonry { grid-template-columns: repeat(2, 1fr); gap:10px; }
+  .full-plate { height:36vh; border-radius:8px; }
+  .hnav { display:none; } /* hide nav buttons on very small screens - users will swipe */
+}
+
+/* small utility for subtle text */
+.small-muted { color: rgba(0,0,0,0.6); font-size:14px; margin-top:8px; text-align:center; }
+</style>
+</head>
+<body>
+
+<!-- SITE BADGE -->
+<div class="site-badge">Akshara Event Planners — Story Gallery</div>
+
+<!-- HERO -->
+<section class="hero" role="img" aria-label="Hero - wedding decoration">
+  <div class="hero-caption">
+    <h1>Designing moments that last a lifetime</h1>
+    <p class="lead">A visual journey through our finest wedding décor — from grand mandaps to delicate floral details.</p>
+  </div>
+</section>
+
+<main class="container" id="mainContent">
+
+  <!-- CHAPTER: Entrance (full width image) -->
+  <h2 class="chapter-title">Entrance & Welcome</h2>
+  <div class="full-plate reveal" id="chap-entrance" style="background-image:url('gallery/weddingdeccorentranceimagee.jpg');"></div>
+
+  <!-- CHAPTER: Mandap (horizontal gallery) -->
+  <h2 class="chapter-title">Mandap & Stage</h2>
+  <div class="hscroll-wrap">
+    <div class="hnav left" id="hleft" title="Scroll left">
+      <!-- left arrow -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </div>
+
+    <div class="hnav right" id="hright" title="Scroll right">
+      <!-- right arrow -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </div>
+
+    <div class="hscroll" id="mandapScroll" role="list">
+      <div class="hitem" style="background-image:url('gallery/madapamstagedecorationimage.jpeg')"></div>
+      <div class="hitem" style="background-image:url('gallery/decorimage1.jpg')"></div>
+      <div class="hitem" style="background-image:url('gallery/decorimage6.jpg')"></div>
+      <div class="hitem" style="background-image:url('gallery/decorimage5.jpg')"></div>
+    </div>
+  </div>
+
+  <!-- CHAPTER: Reception (full width) -->
+  <h2 class="chapter-title">Reception & Tablescape</h2>
+  <div class="full-plate reveal" id="chap-reception" style="background-image:url('gallery/reception&decorstyling.jpeg');"></div>
+
+  <!-- CHAPTER: Styling & Details (masonry collage) -->
+  <!-- <h2 class="chapter-title">Styling & Details</h2>
+  <div class="masonry" id="masonryGrid">
+    <div class="mitem reveal" style="background-image:url('gallery/wedding decoration/photo8.jpg')"></div>
+    <div class="mitem reveal" style="background-image:url('gallery/wedding decoration/photo9.jpg')"></div>
+    <div class="mitem reveal" style="background-image:url('gallery/wedding decoration/photo10.jpg')"></div> -->
+    <!-- If you have more images, add more .mitem blocks -->
+  <!-- </div> -->
+
+  <p class="small-muted">Swipe horizontal galleries on mobile. Tap images to view fullscreen.</p>
+
+  <!-- CTA -->
+  <section class="cta reveal" id="ctaBook">
+    <h3>Like what you see? Let's plan your dream day.</h3>
+    <p>We craft every detail — mandap, lighting, florals, staging and more. Book a free consultation with our team.</p>
+    <button class="btn-primary" onclick="location.href='contact.html'">Book a Consultation</button>
+  </section>
+
+</main>
+
+<!-- LIGHTBOX (shared for all images) -->
+<div id="lightbox" style="display:none; position:fixed; inset:0; background: rgba(0,0,0,0.92); align-items:center; justify-content:center; z-index:99999;">
+  <button id="lbClose" style="position:absolute; right:22px; top:18px; font-size:36px; color:white; background:none; border:none; cursor:pointer;">&times;</button>
+  <img id="lbImg" src="" alt="Expanded" style="max-width:94%; max-height:92%; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,0.6);"/>
+</div>
+
+<script>
+/* =========================================================================
+   JS: reveal on scroll, horizontal nav/drag, lightbox, lazy fallback
+   - No external libraries
+   ========================================================================= */
+
+/* Reveal-on-scroll helper */
+const revealEls = document.querySelectorAll('.reveal');
+const onScrollReveal = () => {
+  const topOffset = window.innerHeight * 0.85;
+  revealEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < topOffset) el.classList.add('in');
+  });
+};
+window.addEventListener('load', onScrollReveal);
+window.addEventListener('scroll', onScrollReveal);
+
+/* Horizontal gallery controls */
+const mandap = document.getElementById('mandapScroll');
+const leftBtn = document.getElementById('hleft');
+const rightBtn = document.getElementById('hright');
+
+if (mandap) {
+  // button scrolling
+  leftBtn && leftBtn.addEventListener('click', () => mandap.scrollBy({ left: -360, behavior: 'smooth' }));
+  rightBtn && rightBtn.addEventListener('click', () => mandap.scrollBy({ left: 360, behavior: 'smooth' }));
+
+  // drag-to-scroll for desktop/touch (lightweight)
+  let isDown = false, startX, scrollLeft;
+  mandap.addEventListener('mousedown', (e) => {
+    isDown = true; mandap.classList.add('dragging');
+    startX = e.pageX - mandap.offsetLeft;
+    scrollLeft = mandap.scrollLeft;
+  });
+  mandap.addEventListener('mouseleave', () => { isDown = false; mandap.classList.remove('dragging'); });
+  mandap.addEventListener('mouseup', () => { isDown = false; mandap.classList.remove('dragging'); });
+  mandap.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - mandap.offsetLeft;
+    const walk = (x - startX) * 1; // scroll-fast multiplier
+    mandap.scrollLeft = scrollLeft - walk;
+  });
+
+  // touch support: allow normal swipe (browser handles it)
+}
+
+/* Simple lightbox: open any background-image or full-plate image on click */
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbClose = document.getElementById('lbClose');
+
+/* Helper to open image in lightbox */
+function openLightbox(src) {
+  lbImg.src = src;
+  lightbox.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+/* Click handlers:
+   - full-plate (background-image)
+   - hitem (background-image)
+   - mitem (background-image)
+   - hero caption image (hero uses CSS background)
+*/
+function bgImageFromStyle(el) {
+  const bg = getComputedStyle(el).backgroundImage;
+  // expects format: url("...") or none
+  const m = bg.match(/url\(["']?(.*?)["']?\)/);
+  return m ? m[1] : null;
+}
+
+// full plates
+document.querySelectorAll('.full-plate').forEach(fp => {
+  fp.addEventListener('click', () => {
+    const src = bgImageFromStyle(fp);
+    if (src) openLightbox(src);
+  });
+});
+
+// horizontal items
+document.querySelectorAll('.hitem').forEach(it => {
+  it.addEventListener('click', () => {
+    const src = bgImageFromStyle(it);
+    if (src) openLightbox(src);
+  });
+});
+
+// masonry items
+document.querySelectorAll('.mitem').forEach(it => {
+  it.addEventListener('click', () => {
+    const src = bgImageFromStyle(it);
+    if (src) openLightbox(src);
+  });
+});
+
+// hero click => open hero image
+document.querySelectorAll('.hero').forEach(h => {
+  h.addEventListener('click', () => {
+    const src = bgImageFromStyle(h);
+    if (src) openLightbox(src);
+  });
+});
+
+// close lightbox
+lbClose.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+  document.body.style.overflow = '';
+});
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+});
+
+/* Accessibility: keyboard close */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+});
+
+/* Lazy load fallback for large backgrounds when needed:
+   This sets an Image to preload background images for snappier lightbox open.
+   (You can expand this to a proper lazy-loading strategy if desired.)
+*/
+const bgEls = document.querySelectorAll('.full-plate, .hitem, .mitem, .hero');
+bgEls.forEach(el => {
+  const src = bgImageFromStyle(el);
+  if (!src) return;
+  // create tiny Image to hint browser to load (non-blocking)
+  const img = new Image();
+  img.src = src;
+});
+
+/* END */
+</script>
+</body>
+</html>

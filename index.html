@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Akshara Event Planners in Tirupati offering wedding planning, reception decor, birthdays & corporate events with creative designs and professional execution.">
+
+  <title>Akshara Event Planners | Wedding & Event Organisers in Tirupati</title>
+
+  <!-- Link CSS + JS -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== SIGNUP GATE OVERLAY ===== -->
+<div id="signupOverlay" class="overlay">
+  <div class="signup-card">
+    <img src="gallery/aksharalogo.jpeg" alt="South Indian wedding stage decoration by Akshara Event Planners Tirupati" class="logo">
+
+    <h2>Sign Up to Continue</h2>
+    <p>Please fill details to view our website</p>
+
+    <form id="signupForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input 
+        type="tel" 
+        name="phone" 
+        placeholder="Phone Number" 
+        required 
+        pattern="[0-9]{10}" 
+        maxlength="10"
+      >
+
+      <input type="text" name="eventType" placeholder="Event Type" required>
+      <input type="text" name="venue" placeholder="Venue" required>
+      <input type="text" name="location" placeholder="Location" required>
+
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== WEBSITE CONTENT ===== -->
+<div id="websiteContent" class="blurred">
+  <!-- YOUR ENTIRE WEBSITE CONTENT HERE -->
+  <!-- <h1>Welcome to My Website</h1>
+  <p>This content is visible after signup</p>
+</div> -->
+  
+  <!-- ================= HEADER (single) ================= -->
+  <header>
+    <div class="header-inner" back>
+      <a href="#" class="brand">
+        <div class="brand-logo">
+          <img src="gallery/aksharalogo.jpeg" alt="Akshara Event Planners Logo" />
+        </div>
+      </a>
+
+      <nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li class="has-dropdown"><a href="#services"></a>
+            <button type="button">Services <span class="dropdown-toggle-icon">▼</span></button>
+            <div class="dropdown-menu">
+              <a href="weddingdecoration.html">Wedding Planning</a>
+              <a href="corporateevents.html">Corporate Events</a>
+              <a href="birthday.html">Birthday Events</a>
+              <!-- <a href="#decor">Decor & Styling</a> -->
+              <a href="https://www.google.com/search?q=akshara+catering+%7C+best+catering+services+in+tirupati&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMg8IARAuGCcYrwEYxwEY6gIyDAgCECMYJxjqAhjwBTIPCAMQLhgnGK8BGMcBGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIJCAYQIxgnGOoCMgwIBxAjGCcY6gIY8AXSAQkzMzYwajBqMTWoAgiwAgHxBQDVutiV-K9J&sourceid=chrome&ie=UTF-8">Cattering</a>
+              <a href="#Photography">Wedding Photography</a>
+            </div>
+          </li>
+          <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#reels">Instagram Reels</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= TITLE SECTION ================= -->
+  <section class="premium-title-section" id="home">
+    <h1 class="main-title">Experience the Art of Grand Celebrations.</h1>
+    <p class="title-sub">Crafting unforgettable moments with elegance & perfection.</p>
+  </section>
+
+  <!-- ================= 3D SLIDER ================= -->
+  <section class="slider3d-section">
+    <div class="carousel" id="carousel">
+      <img src="gallery/decorimage1.jpg" alt="" class="item">
+      <img src="gallery/decorimage2.jpg" alt="" class="item">
+      <img src="gallery/decorimage6.jpg" alt="" class="item">
+      <img src="gallery/decorimage4.jpg" alt="" class="item">
+      <img src="gallery/decorimage5.jpg" alt="" class="item">
+    </div>
+  </section>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div id="imageModal" class="modal" aria-hidden="true">
+    <span class="closeBtn" role="button" aria-label="Close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="expanded image">
+  </div>
+
+  <!-- CONTACT BUTTON -->
+  <section class="contact-section">
+    <a href="contact.html" class="contact-btn">Contact Now</a>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section id="services-section" class="services-section">
+    <h2 class="services-title">A–Z Services For Any Type of Events</h2>
+    <div class="services-grid">
+      <!-- cards -->
+      <div class="service-card">
+        <img src="gallery/weddingplanning.jpg" class="service-img" alt="">
+        <h3>Wedding Planning</h3>
+        <p>Premium wedding planning from decor to mandap arrangements.</p>
+      </div>
+      <div class="service-card">
+        <img src="gallery/birthdayevents.jpg" class="service-img" alt="">
+        <h3>Birthday Events</h3>
+        <p>Themes, decor, entertainment & full birthday celebration setup.</p>
+      </div>
+      <div class="service-card">
+        <img src="gallery/cateringimage.jpeg" class="service-img" alt="">
+        <h3>Catering</h3>
+        <p>Delicious multi-cuisine menus with complete food arrangements.</p>
+      </div>
+      <div class="service-card">
+        <img src="gallery/photographyimage.jpg" class="service-img" alt="">
+        <h3>Photography</h3>
+        <p>Premium wedding & event photography with cinematic videography.</p>
+      </div>
+      <div class="service-card">
+        <img src="gallery/makeupimage.jpg" class="service-img" alt="">
+        <h3>Makeup</h3>
+        <p>Professional bridal & event makeup by expert artists.</p>
+      </div>
+      <div class="service-card">
+        <img src="gallery/corporateevent.jpeg" class="service-img" alt="">
+        <h3>Corporate Events</h3>
+        <p>Meetings, conferences, launches & complete corporate support.</p>
+      </div>
+      <div class="service-card">
+        <img src="gallery/decorimage4.jpg" class="service-img" alt="">
+        <h3>Decor & Styling</h3>
+        <p>Beautiful decor themes & creative styling for any event.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO SLIDER -->
+  <section class="logo-ultra-section">
+    <div class="logo-ultra-slider">
+      <div class="logo-ultra-track">
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 1"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 2"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 3"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 4"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 5"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 6"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 7"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 8"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 9"></div>
+        <div class="logo-card"><img src="gallery/aksharalogo.jpeg" alt="logo 10"></div>
+      </div>
+    </div>
+
+    <a href="quotation.html" class="more-btn">Build Your Own Quotation</a>
+  </section>
+
+  <!-- IG QUOTE + FOLLOW -->
+  <section class="ig-quote-wrapper">
+    <p class="ig-quote">“Every moment deserves to be remembered beautifully.”</p>
+
+    <button class="ig-floating-follow-btn" onclick="window.open('https://instagram.com/AksharaEventPlanners','_blank')">
+      <img src="gallery/instagramlogo.jpeg" class="ig-follow-logo" alt="brand">
+    </button>
+  </section>
+
+  <!-- ================= ABOUT US SECTION ================= -->
+  <section id="about" class="about-section">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="ceo-photo-wrap">
+          <img src="gallery/ceoimage.jpg" alt="CEO - Akshara Event Planners" class="ceo-photo">
+        </div>
+        <figcaption class="ceo-name"><strong>Ganesh</strong><br>Founder & CEO</figcaption>
+      </div>
+
+      <div class="about-text">
+        <h2 class="section-title">Our Story</h2>
+
+        <p class="about-summary">
+          Akshara Event Planners began in 2015 with a single dream: to turn ordinary moments into unforgettable celebrations.
+          Since then we've crafted over <strong>350+ events</strong>, learning on the go, overcoming challenges and growing with every celebration.
+          Our team brings warmth, attention to detail and a personal touch to every wedding, party and corporate event.
+        </p>
+
+        <div class="about-more" id="aboutMore" aria-hidden="true">
+          <p>
+            In our early days we faced long nights, tight budgets and venues that tested our patience — but each challenge made us better.
+            We learned to design beautiful setups on small budgets, build trusted vendor relationships, and deliver calm leadership on hectic days.
+            Today, Akshara is more than a service — it's a promise to craft joyful, elegant experiences that families remember for life.
+          </p>
+          <p>
+            Every event we do is guided by the same values: empathy, creativity and reliability. Whether it's a traditional wedding,
+            an intimate ceremony, or a large corporate launch, our goal is the same — flawless execution so you can be present and enjoy each moment. and We are the best event planners in Tirupati.
+          </p>
+        </div>
+
+        <div class="about-actions">
+          <button id="knowMoreBtn" class="btn outline">Know more</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Reels Horizontal Auto Carousel ================= -->
+<section id="reels" class="reels-section">
+  <div class="reels-head">
+    <h3 class="reels-title">Latest Reels</h3>
+    <p class="reels-sub">Behind the scenes, quick reels & highlights</p>
+  </div>
+
+  <div class="reels-viewport" aria-label="Instagram reels carousel">
+    <div class="reel-track" id="reelTrack">
+      <!-- Example items: replace href with your actual Instagram reel permalink
+           and src with your thumbnail image in gallery/insta/ -->
+      <a class="reel-item" href="https://www.instagram.com/reel/DQOM_k2k7f5/?igsh=MWEwZmtjaDA4N256dg==" target="_blank" rel="noopener noreferrer" aria-label="Reel 1">
+        <img src="gallery/instagramreel1.jpg" alt="Reel 1 - Decoration time-lapse" loading="lazy">
+      </a>
+
+      <a class="reel-item" href="https://www.instagram.com/reel/CrPeteFx7mr/?igsh=dTQ3bzVjM2xqcXB0" target="_blank" rel="noopener noreferrer" aria-label="Reel 2">
+        <img src="gallery/instagramreel2.jpg" alt="Reel 2 - Bridal makeup" loading="lazy">
+      </a>
+
+      <a class="reel-item" href="https://www.instagram.com/reel/CracRfCuYcS/?igsh=eWMxdmpnbXRmdmhr" target="_blank" rel="noopener noreferrer" aria-label="Reel 3">
+        <img src="gallery/instagramreel3.jpg" alt="Reel 3 - Venue setup" loading="lazy">
+      </a>
+
+      <a class="reel-item" href="https://www.instagram.com/reel/Coy3TlejF5F/?igsh=MTF2ZjdsdXBwM3g5Yw==" target="_blank" rel="noopener noreferrer" aria-label="Reel 4">
+        <img src="gallery/instagramreel4.jpg" alt="Reel 4 - Catering highlights" loading="lazy">
+      </a>
+
+      <a class="reel-item" href="https://www.instagram.com/reel/C87RhzxSnPH/?igsh=MXgxZXFjbmhqZWkwZw==" target="_blank" rel="noopener noreferrer" aria-label="Reel 4">
+        <img src="gallery/instagramreel5.jpg" alt="Reel 4 - Catering highlights" loading="lazy">
+      </a>
+
+      <!-- add as many items as you want; script duplicates them for continuous loop -->
+    </div>
+  </div>
+
+  <div class="reels-controls">
+    <button id="reelBtnPause" class="reel-btn">Pause</button>
+    <button id="reelBtnPlay" class="reel-btn" hidden>Play</button>
+    <small class="reels-note">Click any reel to open on Instagram</small>
+  </div>
+</section>
+
+<!-- ========== Testimonials (drop this where you want the section) ========== -->
+<section id="testimonials" class="testimonial-section">
+  <h2 class="testimonial-title">What our couples say</h2>
+
+  <div class="testimonial-slider-wrap" aria-hidden="false">
+    <div id="testimonialSlider" class="testimonial-slider" role="list" aria-label="Testimonials carousel">
+      <!-- 6 original cards (JS will duplicate them for the seamless loop) -->
+      <article class="testimonial-card" role="listitem" data-index="1" data-href="#">
+        <img class="review-photo" src="gallery/couple1image.jpg" alt="Client photo 1">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">“Akshara made our wedding day effortless — beautiful decor and calm coordination.”</p>
+        <div class="review-name">Sandeep & Lahari</div>
+      </article>
+
+      <article class="testimonial-card" role="listitem" data-index="2" data-href="#">
+        <img class="review-photo" src="gallery/couple2image.jpg" alt="Client photo 2">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">“Professional team. Everything ran on time and looked stunning!”</p>
+        <div class="review-name">Lokesh & Harshita</div>
+      </article>
+
+      <article class="testimonial-card" role="listitem" data-index="3" data-href="#">
+        <img class="review-photo" src="gallery/couple3image.jpg" alt="Client photo 3">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">“We loved the creativity and the vendor coordination — highly recommended.”</p>
+        <div class="review-name">Sai & Chaya Priya</div>
+      </article>
+
+      <article class="testimonial-card" role="listitem" data-index="4" data-href="#">
+        <img class="review-photo" src="gallery/couple4i.jpg" alt="Client photo 4">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">“Great communication, calm leadership on a hectic day. Thank you!”</p>
+        <div class="review-name">Harsha & Mounisha</div>
+      </article>
+
+      <article class="testimonial-card" role="listitem" data-index="5" data-href="#">
+        <img class="review-photo" src="gallery/couple5image.jpg" alt="Client photo 5">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">“Impeccable attention to detail. Guests were impressed with every setup.”</p>
+        <div class="review-name">Ganesh & Sirisha</div>
+      </article>
+
+      <article class="testimonial-card" role="listitem" data-index="6" data-href="#">
+        <img class="review-photo" src="gallery/couple6image.jpg" alt="Client photo 6">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">“Personal service and beautiful execution. We enjoyed every moment.”</p>
+        <div class="review-name">Chaitanya & Tejaswini</div>
+      </article>
+      <article class="testimonial-card" role="listitem" data-index="6" data-href="#">
+        <img class="review-photo" src="gallery/couple7i.jpg" alt="Client photo 6">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="review-text">“Personal service and beautiful execution. We enjoyed every moment.”</p>
+        <div class="review-name">Srinivas & Lavanya</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Modal to show expanded testimonial when card clicked -->
+<div id="testimonialModal" class="testimonial-modal" aria-hidden="true" role="dialog" aria-label="Testimonial details">
+  <div class="modal-content">
+    <button class="close-modal" aria-label="Close testimonial">×</button>
+    <img id="modalPhoto" class="modal-photo" src="" alt="Client photo">
+    <h3 id="modalName"></h3>
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<!-- ===== Premium Animated Workflow (drop-in) ===== -->
+<section id="animated-workflow" class="animated-workflow" aria-label="Our animated workflow">
+  <div class="workflow-container">
+    <h2 class="workflow-heading">Our Animated Workflow — How we make it effortless</h2>
+
+    <div class="workflow-canvas">
+      <!-- SVG connector (centered elegant curve) -->
+      <svg id="wfConnector" class="wf-connector" viewBox="0 0 1200 140" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="wfGrad" x1="0" x2="1">
+            <stop offset="0%" stop-color="#8f3f92"/>
+            <stop offset="100%" stop-color="#c77bc1"/>
+          </linearGradient>
+          <filter id="wfGlow" height="300%" width="300%" x="-100%" y="-100%">
+            <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- subtle base path -->
+        <path id="wfPath" d="M60 90 C 200 0, 400 0, 520 90 C 640 180, 860 180, 1100 90" stroke="#efe9ee" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path id="wfPathActive" d="M60 90 C 200 0, 400 0, 520 90 C 640 180, 860 180, 1100 90"
+              stroke="url(#wfGrad)" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="0 1000" filter="url(#wfGlow)"/>
+        <circle id="wfDot" r="10" fill="#fff" stroke="#883f85" stroke-width="3" style="opacity:0; transform-origin:center;"/>
+      </svg>
+
+      <ol id="wfSteps" class="wf-steps" role="list" aria-label="Workflow steps">
+        <!-- Keep same content as your steps; example first three shown, rest preserved -->
+        <li class="wf-step" data-step="1" data-title="Inquiry">
+          <button class="wf-btn" aria-expanded="false" aria-controls="wfPanel1">
+            <span class="wf-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#8f3f92" d="M2 3h20v2H2zM4 7h16v2H4zM6 11h12v2H6z"/></svg>
+            </span>
+            <div class="wf-meta">
+              <div class="wf-title">Inquiry</div>
+              <div class="wf-sub">Quick availability check</div>
+            </div>
+            <span class="wf-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div id="wfPanel1" class="wf-panel" hidden>
+            <p>Message us with your date and rough guest count — we’ll respond within 24 hours with availability and next steps.</p>
+          </div>
+        </li>
+
+        <li class="wf-step" data-step="2" data-title="Consultation">
+          <button class="wf-btn" aria-expanded="false" aria-controls="wfPanel2">
+            <span class="wf-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#8f3f92" d="M12 2a5 5 0 015 5v3h-2V7a3 3 0 10-6 0v3H7V7a5 5 0 015-5zM5 15h14v5H5z"/></svg></span>
+            <div class="wf-meta"><div class="wf-title">Consultation</div><div class="wf-sub">Call or meeting</div></div>
+            <span class="wf-arrow">▾</span>
+          </button>
+          <div id="wfPanel2" class="wf-panel" hidden><p>We capture theme preferences, budget and expectations to craft a custom plan.</p></div>
+        </li>
+
+        <li class="wf-step" data-step="3" data-title="Proposal">
+          <button class="wf-btn" aria-expanded="false" aria-controls="wfPanel3">
+            <span class="wf-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#8f3f92" d="M3 3h18v2H3zm2 4h14v12H5z"/></svg></span>
+            <div class="wf-meta"><div class="wf-title">Proposal & Quote</div><div class="wf-sub">Clear pricing</div></div>
+            <span class="wf-arrow">▾</span>
+          </button>
+          <div id="wfPanel3" class="wf-panel" hidden><p>Receive a transparent proposal with timeline and vendor options.</p></div>
+        </li>
+
+        <!-- Repeat for all 9 steps, preserving contents -->
+        <!-- ... -->
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- //whatsapp float chat button -->
+<a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/919876543210?text=Hello%20I%20have%20a%20query" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <!-- Inline WhatsApp SVG icon -->
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+    <path d="M20.52 3.48A11.88 11.88 0 0012 0C5.372 0 .001 5.372.001 12 0 14.203.57 16.298 1.65 18.11L0 24l6.05-1.59A11.938 11.938 0 0012 24c6.628 0 12-5.372 12-12 0-1.95-.47-3.8-1.48-5.42zM12 21.6c-1.8 0-3.54-.48-5.05-1.38l-.36-.21-3.6.95.96-3.52-.23-.37A9.6 9.6 0 012.4 12c0-5.31 4.29-9.6 9.6-9.6s9.6 4.29 9.6 9.6-4.29 9.6-9.6 9.6z" fill="currentColor"/>
+    <path d="M17.1 14.2c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15s-.77.97-.95 1.17c-.17.2-.34.22-.63.07-.29-.15-1.24-.46-2.36-1.43-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.44.12-.59.12-.12.27-.33.41-.5.14-.17.18-.29.27-.48.09-.19.05-.36-.03-.51-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.45s1.03 2.84 1.17 3.04c.14.2 2.02 3.09 4.9 4.32 1.04.45 1.85.72 2.48.92.95.29 1.81.25 2.49.15.76-.11 2.33-.95 2.66-1.86.33-.9.33-1.68.23-1.86-.11-.18-.4-.29-.8-.45z" fill="#fff"/>
+  </svg>
+</a>
+<!-- whatsapp float button end -->
+ <!-- Floating Book Quotation Button -->
+<a href="quotation.html" class="floating-quote-btn">
+  Build Your Quotation
+</a>
+
+
+<!-- ===== Footer: Contact Info + Map (Option 3) ===== -->
+<footer id="siteFooter" class="site-footer" aria-labelledby="footerTitle">
+  <div class="footer-top">
+    <div class="footer-inner">
+
+      <!-- Column 1: Brand + short about -->
+      <div class="footer-col footer-brand-col">
+        <a href="#home" class="footer-logo-link" aria-label="Akshara Event Planners home">
+          <img src="gallery/aksharalogo.jpeg" alt="Akshara Event Planners logo" class="footer-logo">
+        </a>
+        <div class="brand-info">
+          <h3 class="brand-name">Akshara Event Planners</h3>
+          <p class="brand-tag">Turning moments into unforgettable celebrations since 2015.</p>
+        </div>
+
+        <div class="contact-quick">
+          <a href="tel:+919000000000" class="contact-line" aria-label="Call Akshara Event Planners">
+            <strong>Phone:</strong> +91 7989177231
+          </a>
+          <a href="mailto:hello@aksharaevents.com" class="contact-line" aria-label="Email Akshara Event Planners">
+            <strong>Email:</strong> aksharavents2k15@gmail.com
+          </a>
+          <div class="contact-line">
+            <strong> Office Address:</strong> S.S.B kalyana Mandapam, Tirchanoor, tirupati, Andhra Pradesh - 517501
+          </div>
+        </div>
+
+        <div class="footer-cta">
+          <a class="btn primary" href="contact.html" title="Book Now">Book Your Event</a>
+          <a class="btn ghost" href="tel:+917989177231" title="Call Now">Call Us</a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick links & hours -->
+      <div class="footer-col footer-links-col" role="navigation" aria-label="Footer Quick Links">
+        <h4 class="col-title">Quick Links</h4>
+        <ul class="quick-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services-section">Services</a></li>
+          <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+          <!-- <li><a href="#terms&conditions">Terms & Conditions</a></li> -->
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <h4 class="col-title" style="margin-top:20px;">Business Hours</h4>
+        <div class="hours">
+          <div>Mon–Sat: <strong>09:00 — 19:00</strong></div>
+          <div>Sun: <strong>By appointment</strong></div>
+        </div>
+
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.instagram.com/aksharaeventplanners/?igsh=MWY5bDljaWp2OTU4aw%3D%3D#" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn">Instagram</a>
+          <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn">Facebook</a>
+          <a href="https://wa.me/917989177231" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-btn">WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Column 3: Map -->
+      <div class="footer-col footer-map-col" aria-hidden="false">
+        <h4 class="col-title">Find Us</h4>
+
+        <!-- Replace src with your embedded Google Maps iframe src (or keep as placeholder) -->
+        <div class="map-wrap" role="region" aria-label="Map showing Akshara Event Planners location">
+          <iframe
+            class="map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.858610264182!2d79.43775637451263!3d13.605446300666284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4bcce1501ae3%3A0x78ae1f581827fffb!2sAkshara%20Event%20planners%20%26%20event%20management%20company!5e0!3m2!1sen!2sin!4v1764820922101!5m2!1sen!2sin" 
+            title="Akshara Event Planners location map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <p class="map-note">Parking available near the venue. Call ahead for directions.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom" role="contentinfo">
+    <div class="copyright">© <span id="footerYear"></span> Akshara Event Planners — All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+<!-- ===== Footer end ===== -->
+
+
+
+</body>
+</html>
