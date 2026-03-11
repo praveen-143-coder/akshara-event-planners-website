@@ -591,11 +591,16 @@ if (localStorage.getItem("signedUp") === "true") {
   overlay.style.display = "none";
   website.classList.remove("blurred");
 } else {
-  // Hide overlay initially, then show after 5 seconds
+  // Hide overlay initially
   overlay.style.display = "none";
 
   setTimeout(() => {
-    overlay.style.display = "flex"; // or "block" — match whatever your CSS uses
+    overlay.style.display = "flex"; // show it first
+    
+    // Force browser to register the display change before animating
+    void overlay.offsetHeight; // 👈 this triggers reflow so animation fires
+
+    overlay.classList.add("visible");
   }, 5000);
 }
 /* Phone number: allow digits only */
