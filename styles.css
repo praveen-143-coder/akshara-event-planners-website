@@ -43,6 +43,20 @@ html, body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   color: #fff;
   text-align: center;
+
+  /* Popup animation */
+  animation: cardPopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes cardPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 /* Logo */
@@ -70,6 +84,11 @@ html, body {
   border: none;
   outline: none;
   font-size: 14px;
+  box-sizing: border-box;
+}
+
+.signup-card input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.6);
 }
 
 .signup-card button {
@@ -82,13 +101,22 @@ html, body {
   color: #000;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
 }
 
+.signup-card button:hover {
+  background: #00aadd;
+  transform: translateY(-1px);
+}
+
+.signup-card button:active {
+  transform: translateY(0);
+}
 /* Website blur */
-.blurred {
+/* .blurred {
   filter: blur(8px);
   pointer-events: none;
-}
+} */
 
 /* Mobile Friendly */
 @media (max-width: 480px) {
@@ -731,6 +759,9 @@ nav { display: flex; align-items: center; gap: 24px; }
   .footer-bottom { flex-direction:column; text-align:center; gap:6px; }
 }
 
+
+
+
 /* Accessibility focus */
 .footer a:focus, .footer button:focus, .social-btn:focus { outline: 3px solid rgba(136,63,133,0.2); outline-offset: 2px; }
 
@@ -796,3 +827,22 @@ nav { display: flex; align-items: center; gap: 24px; }
   }
 }
 /* floating quotation button end */
+
+/* ✅ iPhone / Small Mobile Floating Button Fix */
+@media (max-width: 480px) {
+
+  .whatsapp-float {
+    right: 12px;
+    bottom: 120px;   /* push WhatsApp higher */
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-quote-btn {
+    right: 12px;
+    bottom: 20px;    /* keep quotation safely lower */
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+}

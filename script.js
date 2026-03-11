@@ -590,8 +590,14 @@ const website = document.getElementById("websiteContent");
 if (localStorage.getItem("signedUp") === "true") {
   overlay.style.display = "none";
   website.classList.remove("blurred");
-}
+} else {
+  // Hide overlay initially, then show after 5 seconds
+  overlay.style.display = "none";
 
+  setTimeout(() => {
+    overlay.style.display = "flex"; // or "block" — match whatever your CSS uses
+  }, 5000);
+}
 /* Phone number: allow digits only */
 form.phone.addEventListener("input", () => {
   form.phone.value = form.phone.value.replace(/\D/g, "");
