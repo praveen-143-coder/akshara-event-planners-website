@@ -161,6 +161,15 @@ nav { display: flex; align-items: center; gap: 24px; }
 
 /* SERVICES DROPDOWN - DESKTOP */
 .has-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(6px); pointer-events: auto; }
+/* Add invisible bridge BEFORE the dropdown */
+.has-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px; /* bridges the gap */
+}
 
 .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100%; background: #fff; color: #000; transition: 0.3s ease; padding: 40px 20px; z-index: 9999; border-radius: 20px 0 0 20px; }
 
@@ -168,7 +177,24 @@ nav { display: flex; align-items: center; gap: 24px; }
 
 .dropdown-toggle-icon { font-size: 10px; }
 
-.dropdown-menu { position: absolute; top: 100%; left: 0; margin-top: 4px; min-width: 180px; background: #121019; border-radius: 10px; padding: 10px 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); opacity: 0; visibility: hidden; transform: translateY(15px); transition: all 0.2s ease; pointer-events: none; z-index: 200; }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0;        /* ← was 4px, remove it */
+  padding-top: 10px;    /* ← push content down instead, keeps hover area connected */
+  min-width: 180px;
+  background: #121019;
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 200;
+}
 
 .dropdown-menu a { display: block; padding: 8px 14px; font-size: 14px; width: 100%; text-align: left; white-space: nowrap; color:white; }
 

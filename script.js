@@ -15,26 +15,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("signupForm");
   const mainContent = document.getElementById("mainContent");
 
-  // ✅ Debug check
-  console.log("Form:", form);
-
-  // Show popup after 5 sec
- // ✅ Check if user already submitted
-const isSubmitted = localStorage.getItem("userSubmitted");
-
-if (!isSubmitted) {
-  setTimeout(() => {
-    overlay.classList.remove("hidden");
-    mainContent.classList.add("blur");
-  }, 5000);
-}
-
-  // ✅ ONLY RUN IF FORM EXISTS
-  if (!form) {
-    console.error("❌ signupForm not found");
+  if (!overlay || !form || !mainContent) {
+    console.error("❌ Required elements missing");
     return;
   }
 
+  /* -----------------------------
+     SHOW POPUP ONLY IF NOT SUBMITTED
+  ----------------------------- */
+  const isSubmitted = localStorage.getItem("userSubmitted");
+
+  if (!isSubmitted) {
+    setTimeout(() => {
+      overlay.classList.remove("hidden");
+      mainContent.classList.add("blur");
+    }, 5000);
+  } else {
+    overlay.style.display = "none";
+    mainContent.classList.remove("blur");
+  }
+
+  /* -----------------------------
+     PHONE INPUT (ONLY NUMBERS)
+  ----------------------------- */
+  if (form.phone) {
+    form.phone.addEventListener("input", () => {
+      form.phone.value = form.phone.value.replace(/\D/g, "");
+    });
+  }
+
+  /* -----------------------------
+     FORM SUBMIT
+  ----------------------------- */
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -47,37 +59,31 @@ if (!isSubmitted) {
     });
 
     try {
-      const res = await fetch(WEB_APP_URL, {
-        method: "POST",
-        body: data
-      });
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbxN-NA3aOTrJSp6VSNurm9CipDA5swCXT_Rh4N7NFLcZiToQM_tf_xotaAxsWi-2ny_/exec",
+        {
+          method: "POST",
+          body: data
+        }
+      );
 
       const result = await res.json();
       console.log("Response:", result);
-if (result.result === "success") {
 
-  // ✅ Show success
-  alert("✅ Submitted Successfully");
-  if (result.result === "success") {
+      if (result.result === "success") {
 
-  // ✅ Save user in browser
-  localStorage.setItem("userSubmitted", "true");
+       
 
-  // Close popup
-  overlay.style.display = "none";
-  mainContent.classList.remove("blur");
+        // Save user
+        localStorage.setItem("userSubmitted", "true");
 
-  form.reset();
-}
+        // Close popup
+        overlay.style.display = "none";
+        mainContent.classList.remove("blur");
 
-  // ✅ Close popup AFTER alert
-  setTimeout(() => {
-    overlay.style.display = "none";   // stronger than class
-    mainContent.classList.remove("blur");
-    form.reset();
-  }, 100);
-}
-      else {
+        form.reset();
+
+      } else {
         alert("❌ " + result.message);
       }
 
@@ -162,27 +168,47 @@ if (result.result === "success") {
   })();
 
   /* ----------------------------
-     Menu toggle & dropdown logic
-     ---------------------------- */
-  (function menuInit() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-        menuToggle.classList.toggle("open");
-      });
-    }
+   Menu toggle & dropdown logic
+   ---------------------------- */
+document.addEventListener("DOMContentLoaded", function menuInit() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-    // Services dropdown for mobile: toggles `.open` on li
-    document.querySelectorAll(".has-dropdown").forEach(item => {
-      item.addEventListener("click", (e) => {
-        // prevent immediate page jump if anchor exists
-        e.stopPropagation();
-        item.classList.toggle("open");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuToggle.classList.toggle("open");
+    });
+
+    // Close menu when a nav link is clicked (mobile UX)
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.classList.remove("open");
       });
     });
-  })();
+  }
+
+  // Services dropdown for mobile
+   document.querySelectorAll(".has-dropdown").forEach(item => {
+    item.addEventListener("click", (e) => {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        e.stopPropagation();
+        item.classList.toggle("open");
+      }
+      // On desktop: do nothing — CSS :hover handles it
+    });
+  });
+
+  // Close menu on outside click
+  document.addEventListener("click", (e) => {
+    if (navLinks && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove("open");
+      menuToggle.classList.remove("open");
+    }
+  });
+});
 
   /* ----------------------------
      Carousel lightbox & tilt effect
