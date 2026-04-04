@@ -19,12 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Form:", form);
 
   // Show popup after 5 sec
+ // ✅ Check if user already submitted
+const isSubmitted = localStorage.getItem("userSubmitted");
+
+if (!isSubmitted) {
   setTimeout(() => {
-    if (overlay && mainContent) {
-      overlay.classList.remove("hidden");
-      mainContent.classList.add("blur");
-    }
+    overlay.classList.remove("hidden");
+    mainContent.classList.add("blur");
   }, 5000);
+}
 
   // ✅ ONLY RUN IF FORM EXISTS
   if (!form) {
