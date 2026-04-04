@@ -17,7 +17,48 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ----------------------------
      Query DOM elements safely
      ---------------------------- */
-  const overlay = document.getElementById("gatedOverlay");      // may be null if overlay is commented out
+  if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: form.name.value,
+      phone: form.phone.value,
+      eventType: form.eventType.value,
+      venue: form.venue.value,
+      location: form.location.value
+    };
+
+    console.log("[akshara] Sending data:", data);
+
+    try {
+      const res = await fetch(WEB_APP_URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const result = await res.json();
+      console.log("[akshara] Response:", result);
+
+      if (result.result === "success") {
+        alert("Submitted Successfully ✅");
+
+        // hide overlay after success
+        if (overlay) overlay.style.display = "none";
+      } else {
+        alert("Error saving data ❌");
+      }
+
+    } catch (err) {
+      console.error("[akshara] Fetch error:", err);
+      alert("Network error ❌");
+    }
+  });
+}
+  const overlay = document.getElementById("signupOverlay");      // may be null if overlay is commented out
   const form = document.getElementById("signupForm");          // may be null
   const submitBtn = document.getElementById("submitBtn");     // may be null
   const spinner = document.getElementById("spinner");         // may be null
