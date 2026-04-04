@@ -58,6 +58,17 @@ if (result.result === "success") {
 
   // ✅ Show success
   alert("✅ Submitted Successfully");
+  if (result.result === "success") {
+
+  // ✅ Save user in browser
+  localStorage.setItem("userSubmitted", "true");
+
+  // Close popup
+  overlay.style.display = "none";
+  mainContent.classList.remove("blur");
+
+  form.reset();
+}
 
   // ✅ Close popup AFTER alert
   setTimeout(() => {
