@@ -7,70 +7,75 @@
  * - Clear comments for maintainability
  *******************************************************/
 
-/* Configuration (set your Apps Script URL here if used) */
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwu4icbfmXHza9A5Qt0dX1k86EJ2ZuA5we1SbseyPGmE8BiZtdQtqGTPdvPN6uzTSXgUQ/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxN-NA3aOTrJSp6VSNurm9CipDA5swCXT_Rh4N7NFLcZiToQM_tf_xotaAxsWi-2ny_/exec";
 
-/* All DOM work happens after DOMContentLoaded */
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("[akshara] DOMContentLoaded — script initializing");
 
-  /* ----------------------------
-     Query DOM elements safely
-     ---------------------------- */
-  if (form) {
+  const overlay = document.getElementById("signupOverlay");
+  const form = document.getElementById("signupForm");
+  const mainContent = document.getElementById("mainContent");
+
+  // ✅ Debug check
+  console.log("Form:", form);
+
+  // Show popup after 5 sec
+  setTimeout(() => {
+    if (overlay && mainContent) {
+      overlay.classList.remove("hidden");
+      mainContent.classList.add("blur");
+    }
+  }, 5000);
+
+  // ✅ ONLY RUN IF FORM EXISTS
+  if (!form) {
+    console.error("❌ signupForm not found");
+    return;
+  }
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const data = {
+    const data = new URLSearchParams({
       name: form.name.value,
       phone: form.phone.value,
       eventType: form.eventType.value,
       venue: form.venue.value,
       location: form.location.value
-    };
-
-    console.log("[akshara] Sending data:", data);
+    });
 
     try {
       const res = await fetch(WEB_APP_URL, {
         method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
+        body: data
       });
 
       const result = await res.json();
-      console.log("[akshara] Response:", result);
+      console.log("Response:", result);
+if (result.result === "success") {
 
-      if (result.result === "success") {
-        alert("Submitted Successfully ✅");
+  // ✅ Show success
+  alert("✅ Submitted Successfully");
 
-        // hide overlay after success
-        if (overlay) overlay.style.display = "none";
-      } else {
-        alert("Error saving data ❌");
+  // ✅ Close popup AFTER alert
+  setTimeout(() => {
+    overlay.style.display = "none";   // stronger than class
+    mainContent.classList.remove("blur");
+    form.reset();
+  }, 100);
+}
+      else {
+        alert("❌ " + result.message);
       }
 
     } catch (err) {
-      console.error("[akshara] Fetch error:", err);
-      alert("Network error ❌");
+      console.error(err);
+      alert("Network Error ❌");
     }
   });
-}
-  const overlay = document.getElementById("signupOverlay");      // may be null if overlay is commented out
-  const form = document.getElementById("signupForm");          // may be null
-  const submitBtn = document.getElementById("submitBtn");     // may be null
-  const spinner = document.getElementById("spinner");         // may be null
-  const submitText = document.getElementById("submitText");   // may be null
-  const closeBtn = document.getElementById("closeBtn");       // may be null
 
-  /* Utility: lock body scroll when overlay shown */
-  function lockBody(lock = true) {
-    document.body.classList.toggle("gated-locked", !!lock);
-  }
+});
 
- 
+
   /* ----------------------------
      About section "Know more" toggle (IMPROVED for mobile)
      - dynamic max-height (fits content)
@@ -208,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   console.log("[akshara] script initialized successfully.");
-}); // end DOMContentLoaded
+// end DOMContentLoaded
 
 
 /* ========== Reels auto-scroll carousel (seamless, clickable) ========== */

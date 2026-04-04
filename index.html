@@ -26,25 +26,20 @@
 </script>
 <body>
 
-  <!-- ===== SIGNUP GATE OVERLAY ===== -->
-<div id="signupOverlay" class="overlay">
+ <!-- ===== OVERLAY FORM ===== -->
+<div id="signupOverlay" class="overlay hidden">
   <div class="signup-card">
-    <img src="gallery/aksharalogo.jpeg" alt="South Indian wedding stage decoration by Akshara Event Planners Tirupati" class="logo">
 
-    <h2>Sign Up to Continue</h2>
-    <p>Please fill details to view our website</p>
+    <img src="gallery/aksharalogo.jpeg" class="logo">
+
+    <h2>Welcome to Akshara Event Planners</h2>
+    <p>Please fill your details to continue</p>
 
     <form id="signupForm">
       <input type="text" name="name" placeholder="Your Name" required>
 
-      <input 
-        type="tel" 
-        name="phone" 
-        placeholder="Phone Number" 
-        required 
-        pattern="[0-9]{10}" 
-        maxlength="10"
-      >
+      <input type="tel" name="phone" placeholder="Phone Number"
+        pattern="[0-9]{10}" maxlength="10" required>
 
       <input type="text" name="eventType" placeholder="Event Type" required>
       <input type="text" name="venue" placeholder="Venue" required>
@@ -52,16 +47,16 @@
 
       <button type="submit">Continue</button>
     </form>
+
   </div>
 </div>
 
-<!-- ===== WEBSITE CONTENT ===== -->
-<div id="websiteContent" class="blurred">
-  <!-- YOUR ENTIRE WEBSITE CONTENT HERE -->
-  <!-- <h1>Welcome to My Website</h1>
-  <p>This content is visible after signup</p>
-</div> -->
-  
+<div id="mainContent">
+  <!-- Your website content -->
+</div>
+
+<!-- LINK JS -->
+<script src="script.js"></script>
   <!-- ================= HEADER (single) ================= -->
   <header>
     <div class="header-inner" back>

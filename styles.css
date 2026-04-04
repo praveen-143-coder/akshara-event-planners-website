@@ -113,10 +113,13 @@ html, body {
   transform: translateY(0);
 }
 /* Website blur */
-/* .blurred {
+.blurred {
   filter: blur(8px);
   pointer-events: none;
-} */
+}
+.hidden {
+  display: none;
+}
 
 /* Mobile Friendly */
 @media (max-width: 480px) {
