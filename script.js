@@ -7,6 +7,24 @@
  * - Clear comments for maintainability
  *******************************************************/
 
+/* ========== SMOOTH SCROLLING ========== */
+/* CSS-based smooth scroll for all anchor links */
+document.documentElement.style.scrollBehavior = "smooth";
+
+/* Override for anchor clicks to account for sticky header offset */
+document.addEventListener("click", function (e) {
+  const link = e.target.closest("a[href^='#']");
+  if (!link) return;
+  const target = document.querySelector(link.getAttribute("href"));
+  if (!target) return;
+  e.preventDefault();
+  const header = document.querySelector("header");
+  const headerHeight = header ? header.getBoundingClientRect().height : 0;
+  const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+  window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+});
+/* ========== END SMOOTH SCROLLING ========== */
+
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxN-NA3aOTrJSp6VSNurm9CipDA5swCXT_Rh4N7NFLcZiToQM_tf_xotaAxsWi-2ny_/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -659,7 +677,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const el = document.getElementById('whatsapp-float');
   if(!el) return;
   // If you prefer constructing the URL dynamically:
-  const phone = '919876543210'; // change to your number (no +)
+  const phone = '917989177231'; // change to your number (no +)
   const message = 'Hello, I would like to enquire about your services.'; // customize
   const url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
   el.setAttribute('href', url);
